@@ -7,14 +7,13 @@
 
     <title>Broadside — Community Letterpress Print Shop</title>
 
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&family=Source+Serif+4:wght@400;600;700&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&family=Source+Serif+4:wght@400;600;700&display=swap"
         rel="stylesheet">
 
-    <!-- CSS -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
@@ -59,6 +58,7 @@
         <div class="nav-links">
             <a href="#about">ABOUT</a>
             <a href="#process">PROCESS</a>
+            <a href="#products">PRODUCTS</a>
             <a href="#schedule">WORKSHOPS</a>
             <a href="#contact">CONTACT</a>
         </div>
@@ -71,7 +71,6 @@
 
 
     <main class="container">
-
 
         <!-- HERO -->
         <section class="hero">
@@ -183,7 +182,6 @@
                 The same three moves, whether it's a wedding invitation
                 or a protest poster.
             </p>
-
 
             <div class="process-grid">
 
@@ -323,11 +321,145 @@
         </section>
 
 
+        <!-- AI PRODUCT GENERATOR -->
+        <section id="products" class="section ai-section">
+
+            <div class="section-heading">
+                <span>04</span>
+                AI PRODUCT GENERATOR
+            </div>
+
+            <div class="ai-intro">
+
+                <div>
+                    <p class="red-label">
+                        POWERED BY GEMINI
+                    </p>
+
+                    <h2>
+                        MAKE A PRODUCT
+                    </h2>
+
+                    <p>
+                        Describe an idea for a letterpress product.
+                        Gemini will create product information that you
+                        can review and submit to the Broadside product list.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="ai-generator">
+
+                <div class="generator-form">
+
+                    <label for="productIdea">
+                        PRODUCT IDEA
+                    </label>
+
+                    <textarea
+                        id="productIdea"
+                        placeholder="Example: Vintage wedding invitation with botanical artwork..."
+                        rows="5"
+                    ></textarea>
+
+                    <button
+                        type="button"
+                        id="generateProductBtn"
+                        class="button red"
+                    >
+                        GENERATE WITH AI
+                    </button>
+
+                    <p id="generatorStatus" class="generator-status"></p>
+
+                </div>
+
+
+                <div
+                    id="generatedProduct"
+                    class="generated-product"
+                    hidden
+                >
+
+                    <div class="generated-label">
+                        GENERATED PRODUCT
+                    </div>
+
+                    <h3 id="generatedName">
+                        Product Name
+                    </h3>
+
+                    <p
+                        id="generatedTagline"
+                        class="generated-tagline"
+                    ></p>
+
+                    <div class="product-meta">
+
+                        <div>
+                            <small>CATEGORY</small>
+                            <strong id="generatedCategory"></strong>
+                        </div>
+
+                        <div>
+                            <small>PRICE</small>
+                            <strong id="generatedPrice"></strong>
+                        </div>
+
+                    </div>
+
+                    <div class="generated-description">
+
+                        <small>DESCRIPTION</small>
+
+                        <p id="generatedDescription"></p>
+
+                    </div>
+
+                    <button
+                        type="button"
+                        id="submitProductBtn"
+                        class="button"
+                    >
+                        SUBMIT PRODUCT
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT LIST -->
+            <div class="product-list-wrapper">
+
+                <div class="section-heading product-heading">
+                    <span>04A</span>
+                    BROADSIDE PRODUCTS
+                </div>
+
+                <div
+                    id="productList"
+                    class="product-list"
+                >
+
+                    <div class="empty-products">
+                        NO AI PRODUCTS SUBMITTED YET.
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
         <!-- WORKSHOPS -->
         <section id="schedule" class="section">
 
             <div class="section-heading">
-                <span>04</span>
+                <span>05</span>
                 STUDIO HOURS & WORKSHOPS
             </div>
 
@@ -439,13 +571,14 @@
         <section id="contact" class="section contact-section">
 
             <div class="section-heading">
-                <span>05</span>
+                <span>06</span>
                 COME MAKE SOMETHING
             </div>
 
             <div class="contact-grid">
 
                 <div>
+
                     <h2>
                         HAVE AN IDEA?
                     </h2>
@@ -454,12 +587,14 @@
                         Bring it to the shop. We'll help you
                         turn it into something you can hold.
                     </p>
+
                 </div>
 
                 <div class="contact-details">
 
                     <div>
                         <small>ADDRESS</small>
+
                         <p>
                             18 PRESS STREET<br>
                             COMMUNITY PRINT DISTRICT
@@ -468,6 +603,7 @@
 
                     <div>
                         <small>EMAIL</small>
+
                         <p>
                             hello@broadside.press
                         </p>
@@ -475,6 +611,7 @@
 
                     <div>
                         <small>HOURS</small>
+
                         <p>
                             TUE — SAT<br>
                             10:00 AM — 6:00 PM
@@ -508,7 +645,6 @@
     </footer>
 
 
-    <!-- JAVASCRIPT -->
     <script src="js/main.js"></script>
 
 </body>
