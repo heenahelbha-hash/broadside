@@ -1034,6 +1034,18 @@
             </button>
           </div>
         </form>
+        <!-- Paste inside <body> where you want the widget (e.g. above the footer) -->
+<section id="pressroom-conditions" style="max-width:640px;margin:2rem auto;padding:1rem;border:2px solid #1B1810;background:#F7F3E9;font-family:'Space Mono',monospace">
+  <h2>PRESSROOM CONDITIONS</h2>
+  <form id="pw-form">
+    <label for="pw-city">City:</label>
+    <input id="pw-city" value="London" required>
+    <button type="submit">CHECK AIR</button>
+  </form>
+  <div id="pw-result" aria-live="polite"></div>
+</section>
+<script src="js/pressroom-weather.js"></script>
+
 
         <div class="reservation-success-msg" id="reservation-success" style="display:none;">
           <div class="stamp-confirmed">CONFIRMED &bull; TICKET ISSUED</div>
