@@ -14,890 +14,503 @@
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&family=Source+Serif+4:wght@400;600;700&display=swap"
         rel="stylesheet">
 
-    <style>
-
-        /* =========================================================
-           ROOT
-        ========================================================= */
-
-        :root {
-            --paper: #f7f3e9;
-            --paper-light: #faf6ed;
-            --paper-dark: #eae3d2;
-
-            --ink: #1b1810;
-            --ink-light: rgba(27, 24, 16, 0.65);
-
-            --red: #b7472a;
-            --red-light: #ce5b3b;
-
-            --olive: #5c6b4a;
-            --mustard: #c9971c;
-
-            --display: "Anton", Impact, sans-serif;
-            --body: "Source Serif 4", Georgia, serif;
-            --mono: "Space Mono", "Courier New", monospace;
-
-            --max: 1200px;
-        }
-
-        /* =========================================================
-           RESET
-        ========================================================= */
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background: var(--paper);
-            color: var(--ink);
-            font-family: var(--body);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        a {
-            color: inherit;
-        }
-
-        button,
-        input,
-        select {
-            font: inherit;
-        }
-
-        /* Paper texture */
-
-        body::before {
-            content: "";
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 999;
-            opacity: 0.035;
-
-            background-image:
-                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-        }
-
-        /* =========================================================
-           TOP BAR
-        ========================================================= */
-
-        .press-bar {
-            background: var(--ink);
-            color: var(--paper);
-            border-bottom: 3px solid var(--red);
-            padding: 9px 20px;
-
-            font-family: var(--mono);
-            font-size: 12px;
-            letter-spacing: 0.08em;
-
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .press-bar-inner {
-            max-width: var(--max);
-            margin: auto;
-
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .press-status {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .green-dot {
-            width: 9px;
-            height: 9px;
-            background: #78905b;
-            border-radius: 50%;
-            box-shadow: 0 0 7px #78905b;
-        }
-
-        .press-open {
-            color: #ffe699;
-            font-weight: bold;
-        }
-
-        /* =========================================================
-           NAVIGATION
-        ========================================================= */
-
-        nav {
-            max-width: var(--max);
-            margin: auto;
-
-            padding: 22px 24px;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-
-            border-bottom: 2px solid var(--ink);
-        }
-
-        .logo {
-            font-family: var(--display);
-            font-size: 2.2rem;
-            letter-spacing: 0.04em;
-        }
-
-        .logo span {
-            color: var(--red);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 25px;
-
-            list-style: none;
-
-            font-family: var(--mono);
-            font-size: 12px;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            border-bottom: 2px solid transparent;
-            padding-bottom: 4px;
-        }
-
-        .nav-links a:hover {
-            border-color: var(--red);
-            color: var(--red);
-        }
-
-        /* =========================================================
-           MAIN
-        ========================================================= */
-
-        main {
-            max-width: var(--max);
-            margin: auto;
-            padding: 30px 24px 80px;
-        }
-
-        /* =========================================================
-           HERO POSTER
-        ========================================================= */
-
-        .hero {
-            margin-top: 20px;
-        }
-
-        .poster {
-            background: var(--paper-light);
-            border: 2px solid var(--ink);
-            padding: 22px;
-
-            box-shadow:
-                7px 7px 0 var(--paper-dark),
-                12px 12px 0 var(--ink);
-
-            position: relative;
-        }
-
-        .poster-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            border-bottom: 1px solid var(--ink);
-            padding-bottom: 12px;
-
-            font-family: var(--mono);
-            font-size: 11px;
-            letter-spacing: 0.12em;
-        }
-
-        .poster-frame {
-            margin-top: 15px;
-            padding: 35px 30px;
-
-            border: 6px double var(--ink);
-
-            text-align: center;
-
-            position: relative;
-        }
-
-        .poster-frame::before,
-        .poster-frame::after {
-            content: "✦";
-
-            position: absolute;
-            top: 7px;
-
-            color: var(--red);
-            font-size: 18px;
-        }
-
-        .poster-frame::before {
-            left: 10px;
-        }
-
-        .poster-frame::after {
-            right: 10px;
-        }
-
-        .pretitle {
-            font-family: var(--mono);
-            color: var(--red);
-            font-size: 13px;
-            font-weight: bold;
-
-            letter-spacing: 0.25em;
-            margin-bottom: 20px;
-        }
-
-        .hero-title {
-            font-family: var(--display);
-            font-size: clamp(4rem, 12vw, 9rem);
-
-            line-height: 0.85;
-            letter-spacing: 0.025em;
-
-            text-transform: uppercase;
-        }
-
-        .hero-subtitle {
-            font-family: var(--display);
-
-            font-size: clamp(2.2rem, 6vw, 5rem);
-
-            line-height: 0.9;
-            margin-top: 12px;
-        }
-
-        .hero-line {
-            height: 6px;
-            background: var(--ink);
-            margin: 25px 0;
-        }
-
-        .hero-info {
-            display: grid;
-            grid-template-columns: 1fr 1.5fr 1fr;
-            gap: 20px;
-            align-items: center;
-        }
-
-        .info-box {
-            padding: 15px;
-        }
-
-        .info-box.middle {
-            border-left: 2px solid var(--ink);
-            border-right: 2px solid var(--ink);
-        }
-
-        .info-symbol {
-            color: var(--red);
-            font-size: 28px;
-            margin-bottom: 5px;
-        }
-
-        .info-title {
-            font-family: var(--mono);
-            font-size: 12px;
-            font-weight: bold;
-            letter-spacing: 0.08em;
-        }
-
-        .info-text {
-            font-size: 14px;
-            margin-top: 5px;
-        }
-
-        .hero-red {
-            color: var(--red);
-        }
-
-        .black-strip {
-            margin-top: 25px;
-
-            background: var(--ink);
-            color: var(--paper);
-
-            padding: 10px;
-
-            font-family: var(--mono);
-            font-size: 12px;
-            font-weight: bold;
-            letter-spacing: 0.18em;
-        }
-
-        /* =========================================================
-           HERO BUTTONS
-        ========================================================= */
-
-        .hero-bottom {
-            margin-top: 25px;
-            padding-top: 20px;
-
-            border-top: 1px dashed var(--ink);
-
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            gap: 20px;
-        }
-
-        .hero-description {
-            max-width: 550px;
-            font-size: 17px;
-        }
-
-        .buttons {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-block;
-
-            padding: 12px 18px;
-
-            border: 2px solid var(--ink);
-
-            text-decoration: none;
-
-            font-family: var(--mono);
-            font-size: 12px;
-            font-weight: bold;
-            letter-spacing: 0.08em;
-
-            box-shadow: 4px 4px 0 var(--ink);
-
-            transition: 0.15s;
-        }
-
-        .btn:hover {
-            transform: translate(-2px, -2px);
-            box-shadow: 6px 6px 0 var(--ink);
-        }
-
-        .btn-primary {
-            background: var(--red);
-            color: white;
-        }
-
-        .btn-secondary {
-            background: var(--paper-dark);
-        }
-
-        /* =========================================================
-           SECTION HEADINGS
-        ========================================================= */
-
-        .section {
-            margin-top: 90px;
-        }
-
-        .section-heading {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-
-            border-bottom: 3px solid var(--ink);
-
-            padding-bottom: 12px;
-            margin-bottom: 30px;
-
-            font-family: var(--mono);
-            font-size: 13px;
-            font-weight: bold;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-        }
-
-        .number {
-            background: var(--ink);
-            color: var(--paper);
-
-            padding: 4px 9px;
-        }
-
-        .section-red {
-            color: var(--red);
-            margin-left: auto;
-        }
-
-        /* =========================================================
-           ABOUT
-        ========================================================= */
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1.4fr 1fr;
-            gap: 30px;
-        }
-
-        .about-card {
-            background: var(--paper-light);
-
-            border: 2px solid var(--ink);
-
-            padding: 30px;
-
-            box-shadow: 5px 5px 0 var(--ink);
-        }
-
-        .about-card h2 {
-            font-family: var(--display);
-            font-size: 45px;
-            line-height: 1;
-            margin-bottom: 18px;
-        }
-
-        .about-card p {
-            font-size: 18px;
-            margin-bottom: 15px;
-        }
-
-        .facts {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-        }
-
-        .fact {
-            border: 1px solid var(--ink);
-            padding: 15px;
-            background: var(--paper-dark);
-        }
-
-        .fact strong {
-            display: block;
-
-            font-family: var(--display);
-            font-size: 30px;
-        }
-
-        .fact span {
-            font-family: var(--mono);
-            font-size: 11px;
-        }
-
-        /* =========================================================
-           HOW IT WORKS
-        ========================================================= */
-
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .step {
-            border: 2px solid var(--ink);
-            padding: 25px;
-
-            background: var(--paper-light);
-
-            position: relative;
-        }
-
-        .step-number {
-            font-family: var(--mono);
-            font-size: 13px;
-            color: var(--red);
-            font-weight: bold;
-        }
-
-        .step h3 {
-            font-family: var(--display);
-            font-size: 40px;
-            margin: 15px 0 8px;
-        }
-
-        .step p {
-            font-size: 16px;
-        }
-
-        /* =========================================================
-           PROOF MACHINE
-        ========================================================= */
-
-        .machine {
-            background: #e9e1d1;
-            border: 3px solid var(--ink);
-
-            padding: 25px;
-
-            box-shadow: 7px 7px 0 var(--ink);
-        }
-
-        .controls {
-            display: grid;
-            grid-template-columns: 1fr 1fr auto;
-            gap: 15px;
-
-            background: var(--paper-light);
-
-            border: 2px solid var(--ink);
-
-            padding: 18px;
-
-            margin-bottom: 25px;
-        }
-
-        .control label {
-            display: block;
-
-            font-family: var(--mono);
-            font-size: 11px;
-            font-weight: bold;
-
-            margin-bottom: 7px;
-        }
-
-        select {
-            width: 100%;
-
-            padding: 10px;
-
-            background: var(--paper);
-
-            border: 2px solid var(--ink);
-
-            font-family: var(--mono);
-        }
-
-        .ink-buttons {
-            display: flex;
-            gap: 7px;
-        }
-
-        .ink-button {
-            width: 35px;
-            height: 35px;
-
-            border: 2px solid var(--ink);
-
-            cursor: pointer;
-        }
-
-        .ink-black {
-            background: #1b1810;
-        }
-
-        .ink-red {
-            background: #b7472a;
-        }
-
-        .ink-olive {
-            background: #5c6b4a;
-        }
-
-        .pull-button {
-            background: var(--red);
-            color: white;
-
-            border: 2px solid var(--ink);
-
-            padding: 10px 20px;
-
-            cursor: pointer;
-
-            font-family: var(--mono);
-            font-weight: bold;
-
-            box-shadow: 4px 4px 0 var(--ink);
-        }
-
-        .pull-button:active {
-            transform: translate(3px, 3px);
-            box-shadow: 1px 1px 0 var(--ink);
-        }
-
-        .machine-stage {
-            min-height: 430px;
-
-            background: #37332d;
-
-            border: 3px solid var(--ink);
-
-            padding: 35px;
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            position: relative;
-        }
-
-        .paper {
-            width: min(100%, 430px);
-
-            min-height: 330px;
-
-            background: var(--paper);
-
-            border: 1px solid var(--ink);
-
-            padding: 35px 25px;
-
-            box-shadow: 0 7px 20px rgba(0,0,0,0.5);
-
-            text-align: center;
-        }
-
-        .paper-header {
-            display: flex;
-            justify-content: space-between;
-
-            font-family: var(--mono);
-            font-size: 10px;
-
-            border-bottom: 1px solid var(--ink);
-            padding-bottom: 7px;
-        }
-
-        .printed {
-            margin-top: 45px;
-
-            font-family: var(--display);
-
-            font-size: clamp(3rem, 8vw, 5rem);
-
-            line-height: 0.85;
-
-            transition: color 0.3s;
-        }
-
-        .printed-small {
-            margin-top: 15px;
-
-            font-family: var(--display);
-
-            font-size: 2.5rem;
-
-            transition: color 0.3s;
-        }
-
-        .paper-description {
-            margin-top: 20px;
-
-            font-style: italic;
-            font-size: 14px;
-        }
-
-        /* =========================================================
-           SCHEDULE
-        ========================================================= */
-
-        .schedule {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-        }
-
-        .schedule-card {
-            background: var(--paper-light);
-
-            border: 2px solid var(--ink);
-
-            padding: 25px;
-        }
-
-        .schedule-card h3 {
-            font-family: var(--display);
-            font-size: 38px;
-            margin-bottom: 15px;
-        }
-
-        .hours {
-            list-style: none;
-        }
-
-        .hours li {
-            display: flex;
-            justify-content: space-between;
-
-            border-bottom: 1px dashed var(--ink);
-
-            padding: 10px 0;
-
-            font-family: var(--mono);
-            font-size: 12px;
-        }
-
-        /* =========================================================
-           FOOTER
-        ========================================================= */
-
-        footer {
-            background: var(--ink);
-            color: var(--paper);
-
-            padding: 50px 24px;
-
-            margin-top: 80px;
-        }
-
-        .footer-inner {
-            max-width: var(--max);
-            margin: auto;
-
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 40px;
-        }
-
-        footer h2 {
-            font-family: var(--display);
-            font-size: 45px;
-            line-height: 1;
-        }
-
-        footer h2 span {
-            color: var(--red);
-        }
-
-        footer h3 {
-            font-family: var(--mono);
-            font-size: 12px;
-            margin-bottom: 10px;
-            color: #ffe699;
-        }
-
-        footer p,
-        footer a {
-            font-size: 14px;
-        }
-
-        footer a {
-            display: block;
-            margin-bottom: 6px;
-            color: var(--paper);
-        }
-
-        .copyright {
-            max-width: var(--max);
-            margin: 35px auto 0;
-
-            padding-top: 15px;
-
-            border-top: 1px solid rgba(255,255,255,0.3);
-
-            font-family: var(--mono);
-            font-size: 10px;
-        }
-
-        /* =========================================================
-           RESPONSIVE
-        ========================================================= */
-
-        @media (max-width: 800px) {
-
-            .nav-links {
-                display: none;
-            }
-
-            .hero-info {
-                grid-template-columns: 1fr;
-            }
-
-            .info-box.middle {
-                border-left: none;
-                border-right: none;
-
-                border-top: 1px solid var(--ink);
-                border-bottom: 1px solid var(--ink);
-            }
-
-            .hero-bottom {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .about-grid,
-            .schedule {
-                grid-template-columns: 1fr;
-            }
-
-            .steps {
-                grid-template-columns: 1fr;
-            }
-
-            .controls {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-inner {
-                grid-template-columns: 1fr;
-            }
-
-            .poster {
-                box-shadow: 5px 5px 0 var(--paper-dark);
-            }
-        }
-
-        @media (max-width: 500px) {
-
-            main {
-                padding: 15px 12px 60px;
-            }
-
-            .poster {
-                padding: 12px;
-            }
-
-            .poster-frame {
-                padding: 25px 12px;
-            }
-
-            .hero-title {
-                font-size: 3.5rem;
-            }
-
-            .hero-subtitle {
-                font-size: 2rem;
-            }
-
-            .buttons {
-                width: 100%;
-            }
-
-            .btn {
-                width: 100%;
-                text-align: center;
-            }
-
-            .machine {
-                padding: 12px;
-            }
-
-            .machine-stage {
-                padding: 15px;
-            }
-        }
-
-    </style>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
 </head>
-
 
 <body>
 
-    <!-- ============================================
+    <!-- Registration Marks -->
+    <div class="registration">
+        <span class="corner top-left"></span>
+        <span class="corner top-right"></span>
+        <span class="corner bottom-left"></span>
+        <span class="corner bottom-right"></span>
+    </div>
+
+    <!-- TOP BAR -->
+    <header class="top-bar">
+        <div class="top-inner">
+
+            <div>
+                <span class="green-dot"></span>
+                PRESS ONLINE
+            </div>
+
+            <div>
+                BROADSIDE / COMMUNITY LETTERPRESS
+            </div>
+
+            <div>
+                EST. 2018
+            </div>
+
+        </div>
+    </header>
+
+
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+
+        <div class="nav-logo">
+            BROADSIDE<span>.</span>
+        </div>
+
+        <div class="nav-links">
+            <a href="#about">ABOUT</a>
+            <a href="#process">PROCESS</a>
+            <a href="#schedule">WORKSHOPS</a>
+            <a href="#contact">CONTACT</a>
+        </div>
+
+        <a href="#schedule" class="nav-button">
+            BOOK A STUDIO HOUR
+        </a>
+
+    </nav>
+
+
+    <main class="container">
+
+
+        <!-- HERO -->
+        <section class="hero">
+
+            <div class="hero-small">
+                EST. 2018 &nbsp;·&nbsp; HAND-SET TYPE &nbsp;·&nbsp; OPEN STUDIO
+            </div>
+
+            <div class="hero-frame">
+
+                <div class="star">✦</div>
+
+                <p class="hero-label">
+                    COMMUNITY PRINT SHOP
+                </p>
+
+                <h1>
+                    WORDS
+                    <span>STILL</span>
+                    WORTH
+                    <strong>SETTING</strong>
+                    BY HAND
+                </h1>
+
+                <div class="hero-line"></div>
+
+                <div class="hero-bottom">
+
+                    <p>
+                        Three Vandercook presses.
+                        Forty cases of wood and metal type.
+                        One community keeping the craft alive.
+                    </p>
+
+                    <div class="hero-number">
+                        NO. 018
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="hero-actions">
+
+                <a href="#schedule" class="button red">
+                    BOOK A STUDIO HOUR
+                </a>
+
+                <a href="#process" class="button">
+                    SEE HOW IT WORKS
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- ABOUT -->
+        <section id="about" class="section">
+
+            <div class="section-heading">
+                <span>01</span>
+                ABOUT THE SHOP
+            </div>
+
+            <div class="about-grid">
+
+                <div>
+                    <h2>
+                        A COMMUNITY
+                        PRINT SHOP
+                    </h2>
+                </div>
+
+                <div class="about-text">
+
+                    <p class="large-text">
+                        Broadside is a community letterpress print shop
+                        dedicated to keeping hands-on printing alive.
+                    </p>
+
+                    <p>
+                        We're a nonprofit shop above a bicycle repair store,
+                        kept alive by dues, workshop fees, and volunteers who
+                        show up every week to distribute type, ink and ideas.
+                    </p>
+
+                    <p>
+                        No previous printing experience is required.
+                        If you've got an idea, we'll help you put it on paper.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PROCESS -->
+        <section id="process" class="section">
+
+            <div class="section-heading">
+                <span>02</span>
+                HOW A JOB GETS MADE
+            </div>
+
+            <p class="section-intro">
+                The same three moves, whether it's a wedding invitation
+                or a protest poster.
+            </p>
+
+
+            <div class="process-grid">
+
+                <article class="process-card">
+
+                    <div class="process-number">
+                        01
+                    </div>
+
+                    <div class="process-icon">
+                        A
+                    </div>
+
+                    <h3>
+                        COMPOSE
+                    </h3>
+
+                    <p>
+                        Type is picked letter by letter from the case and
+                        locked into a composing stick, backwards and upside
+                        down, until the line reads true.
+                    </p>
+
+                </article>
+
+
+                <article class="process-card">
+
+                    <div class="process-number">
+                        02
+                    </div>
+
+                    <div class="process-icon">
+                        ■
+                    </div>
+
+                    <h3>
+                        INK
+                    </h3>
+
+                    <p>
+                        A thin, even film goes down with a brayer —
+                        too much and the letterforms fill in,
+                        too little and the impression starves.
+                    </p>
+
+                </article>
+
+
+                <article class="process-card">
+
+                    <div class="process-number">
+                        03
+                    </div>
+
+                    <div class="process-icon">
+                        P
+                    </div>
+
+                    <h3>
+                        PULL
+                    </h3>
+
+                    <p>
+                        Paper meets type under real pressure.
+                        Every sheet gets pulled by hand,
+                        one at a time.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- PRESSROOM -->
+        <section class="section dark-section">
+
+            <div class="section-heading light">
+                <span>03</span>
+                THE PRESSROOM
+            </div>
+
+            <div class="pressroom-grid">
+
+                <div>
+
+                    <p class="red-label">
+                        THREE PRESSES
+                    </p>
+
+                    <h2>
+                        BUILT FOR
+                        REAL INK.
+                    </h2>
+
+                    <p>
+                        Our workshop houses three Vandercook presses,
+                        hundreds of cases of type and enough ink to make
+                        your hands permanently interesting.
+                    </p>
+
+                    <a href="#schedule" class="button white-button">
+                        VISIT THE PRESSROOM
+                    </a>
+
+                </div>
+
+
+                <div class="press-visual">
+
+                    <div class="press-machine">
+
+                        <div class="machine-top"></div>
+
+                        <div class="machine-body">
+
+                            <div class="machine-wheel">
+                                ↻
+                            </div>
+
+                            <div class="machine-text">
+                                BROADSIDE
+                            </div>
+
+                        </div>
+
+                        <div class="machine-bed"></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- WORKSHOPS -->
+        <section id="schedule" class="section">
+
+            <div class="section-heading">
+                <span>04</span>
+                STUDIO HOURS & WORKSHOPS
+            </div>
+
+            <div class="schedule-grid">
+
+                <div class="schedule-card featured">
+
+                    <div class="date">
+                        EVERY TUESDAY
+                    </div>
+
+                    <h3>
+                        OPEN STUDIO
+                    </h3>
+
+                    <p>
+                        Bring your project and work alongside
+                        other printers.
+                    </p>
+
+                    <div class="time">
+                        10:00 AM — 6:00 PM
+                    </div>
+
+                    <a href="#contact" class="button red">
+                        BOOK A SLOT
+                    </a>
+
+                </div>
+
+
+                <div class="schedule-card">
+
+                    <div class="date">
+                        SATURDAY
+                    </div>
+
+                    <h3>
+                        BEGINNER TYPE
+                    </h3>
+
+                    <p>
+                        Learn the basics of hand-set type,
+                        ink and pulling a print.
+                    </p>
+
+                    <div class="time">
+                        2 HOURS
+                    </div>
+
+                    <a href="#contact" class="button">
+                        JOIN WORKSHOP
+                    </a>
+
+                </div>
+
+
+                <div class="schedule-card">
+
+                    <div class="date">
+                        MONTHLY
+                    </div>
+
+                    <h3>
+                        COMMUNITY NIGHT
+                    </h3>
+
+                    <p>
+                        A free evening for local artists,
+                        makers and curious people.
+                    </p>
+
+                    <div class="time">
+                        FIRST FRIDAY
+                    </div>
+
+                    <a href="#contact" class="button">
+                        LEARN MORE
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- QUOTE -->
+        <section class="quote-section">
+
+            <div class="quote-mark">
+                “
+            </div>
+
+            <blockquote>
+                EVERY SHEET IS
+                A LITTLE DIFFERENT.
+                THAT'S THE POINT.
+            </blockquote>
+
+            <p>
+                — BROADSIDE PRESS ROOM
+            </p>
+
+        </section>
+
+
+        <!-- CONTACT -->
+        <section id="contact" class="section contact-section">
+
+            <div class="section-heading">
+                <span>05</span>
+                COME MAKE SOMETHING
+            </div>
+
+            <div class="contact-grid">
+
+                <div>
+                    <h2>
+                        HAVE AN IDEA?
+                    </h2>
+
+                    <p>
+                        Bring it to the shop. We'll help you
+                        turn it into something you can hold.
+                    </p>
+                </div>
+
+                <div class="contact-details">
+
+                    <div>
+                        <small>ADDRESS</small>
+                        <p>
+                            18 PRESS STREET<br>
+                            COMMUNITY PRINT DISTRICT
+                        </p>
+                    </div>
+
+                    <div>
+                        <small>EMAIL</small>
+                        <p>
+                            hello@broadside.press
+                        </p>
+                    </div>
+
+                    <div>
+                        <small>HOURS</small>
+                        <p>
+                            TUE — SAT<br>
+                            10:00 AM — 6:00 PM
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-logo">
+            BROADSIDE<span>.</span>
+        </div>
+
+        <p>
+            COMMUNITY LETTERPRESS PRINT SHOP
+        </p>
+
+        <p>
+            © 2026 BROADSIDE
+        </p>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
