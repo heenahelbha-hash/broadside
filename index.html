@@ -1,1070 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Broadside — Community Letterpress Print Shop</title>
-  <meta name="description" content="Broadside is a community letterpress print shop dedicated to hand-pulled wood & metal type editions, workshops, and open press access.">
-  
-  <!-- Fonts: Anton (Wood Type Posters), Source Serif 4 (Body Copy), Space Mono (Job Specs) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..800;1,8..60,300..800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-  
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Broadside — a community letterpress shop</title>
+<meta name="description" content="Broadside is a community letterpress print shop running open studio hours and workshops on hand-set type.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Background Registration Marks & Paper Texture -->
-  <div class="sheet-bleed-container" aria-hidden="true">
-    <div class="corner-mark top-left"></div>
-    <div class="corner-mark top-right"></div>
-    <div class="corner-mark bottom-left"></div>
-    <div class="corner-mark bottom-right"></div>
-    <div class="registration-cross reg-north"></div>
-    <div class="registration-cross reg-south"></div>
-    <div class="registration-cross reg-west"></div>
-    <div class="registration-cross reg-east"></div>
+<div class="reg-mark reg-tl" aria-hidden="true">+</div>
+<div class="reg-mark reg-tr" aria-hidden="true">+</div>
+
+<header class="poster">
+  <p class="poster-kicker">Est. 2018 &middot; hand-set type &middot; open studio</p>
+  <h1 class="poster-title">
+    <span class="line line-1">WORDS</span>
+    <span class="line line-2">STILL WORTH</span>
+    <span class="line line-3">SETTING BY HAND</span>
+  </h1>
+  <p class="poster-sub">Broadside is a community print shop — three Vandercook presses, forty cases of wood and metal type, and open studio hours every week for anyone who wants ink on their hands.</p>
+  <div class="poster-actions">
+    <a href="#schedule" class="btn btn-primary">Book a studio hour</a>
+    <button type="button" class="btn btn-outline" id="pullProof">Pull a proof</button>
   </div>
+  <p class="proof-counter" id="proofCounter" aria-live="polite"></p>
+</header>
 
-  <!-- Top Dispatch & Press Status Bar -->
-  <header class="press-dispatch-bar">
-    <div class="dispatch-inner">
-      <div class="dispatch-col status-pill">
-        <span class="indicator-dot"></span>
-        <span class="mono-label">PRESS NO. 3 RUNNING:</span>
-        <span class="status-press">VANDERCOOK SP-15 (IN DRY PULL)</span>
+<main>
+
+  <section class="intro">
+    <p class="lede">We're a nonprofit shop above a bicycle repair store, kept alive by dues, workshop fees, and volunteers who show up on Tuesdays to distribute type back into its cases. If you've never touched a composing stick, that's the usual way people start here.</p>
+  </section>
+
+  <section class="process" id="process">
+    <div class="section-head">
+      <h2>How a job gets made</h2>
+      <p class="section-note">The same three moves, whether it's a wedding invite or a protest poster.</p>
+    </div>
+    <ol class="process-steps">
+      <li class="process-step">
+        <span class="step-num">01</span>
+        <h3>Compose</h3>
+        <p>Type is picked letter by letter from the case and locked into a composing stick, backwards and upside down, until the line reads true.</p>
+      </li>
+      <li class="process-step">
+        <span class="step-num">02</span>
+        <h3>Ink</h3>
+        <p>A thin, even film goes down with a brayer — too much and the letterforms fill in, too little and the impression starves.</p>
+      </li>
+      <li class="process-step">
+        <span class="step-num">03</span>
+        <h3>Pull</h3>
+        <p>Paper meets type under real pressure. Every sheet gets pulled by hand, one at a time, which is why no two runs are quite identical.</p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="schedule" id="schedule">
+    <div class="section-head">
+      <h2>Studio hours &amp; workshops</h2>
+      <p class="section-note">Drop-in studio hours are free for members. Workshops require a seat booking.</p>
+    </div>
+    <table class="schedule-table">
+      <thead>
+        <tr>
+          <th>Day</th>
+          <th>Session</th>
+          <th>Time</th>
+          <th>Seats</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="Day">Tue</td>
+          <td data-label="Session">Open studio — type distribution &amp; practice</td>
+          <td data-label="Time">6:00 – 9:00pm</td>
+          <td data-label="Seats"><span class="seats seats-open">drop-in</span></td>
+        </tr>
+        <tr>
+          <td data-label="Day">Thu</td>
+          <td data-label="Session">Open studio — press time by reservation</td>
+          <td data-label="Time">6:00 – 9:00pm</td>
+          <td data-label="Seats"><span class="seats seats-open">drop-in</span></td>
+        </tr>
+        <tr>
+          <td data-label="Day">Sat 3rd</td>
+          <td data-label="Session">Workshop — setting your first broadside</td>
+          <td data-label="Time">10:00am – 1:00pm</td>
+          <td data-label="Seats"><span class="seats seats-limited">3 seats left</span></td>
+        </tr>
+        <tr>
+          <td data-label="Day">Sat 17th</td>
+          <td data-label="Session">Workshop — two-color registration</td>
+          <td data-label="Time">10:00am – 2:00pm</td>
+          <td data-label="Seats"><span class="seats seats-full">waitlist only</span></td>
+        </tr>
+        <tr>
+          <td data-label="Day">Sun 25th</td>
+          <td data-label="Session">Workshop — carving your own woodblock</td>
+          <td data-label="Time">11:00am – 3:00pm</td>
+          <td data-label="Seats"><span class="seats seats-limited">2 seats left</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="gallery" id="gallery">
+    <div class="section-head">
+      <h2>Off the press</h2>
+      <p class="section-note">A handful of jobs run this year, shown by ink rather than photograph.</p>
+    </div>
+    <div class="swatch-grid">
+      <div class="swatch swatch-red">
+        <p class="swatch-title">Founders' Day broadside</p>
+        <p class="swatch-meta">1 color &middot; hot press red &middot; 18 × 24, edition of 60</p>
       </div>
-      <div class="dispatch-col shop-location">
-        <span class="mono-label">GUILD SHOP:</span>
-        <span>424 FOUNDRY ALLEY, CORNER OF 4TH &amp; MARKET</span>
+      <div class="swatch swatch-ink">
+        <p class="swatch-title">Menu cards, Carriage House</p>
+        <p class="swatch-meta">1 color &middot; ink black &middot; 5 × 7, edition of 200</p>
       </div>
-      <div class="dispatch-col open-status">
-        <span class="mono-label">HOURS:</span>
-        <span>WED–SUN 10:00 — 19:00</span>
+      <div class="swatch swatch-mustard">
+        <p class="swatch-title">Workshop poster series</p>
+        <p class="swatch-meta">2 color &middot; mustard + black &middot; 11 × 17, edition of 40</p>
       </div>
-      <div class="dispatch-col edition-tag">
-        <span class="tag-badge">EDITION NO. 408</span>
+      <div class="swatch swatch-olive">
+        <p class="swatch-title">Wedding invitations, Reyes/Okafor</p>
+        <p class="swatch-meta">2 color &middot; olive + black &middot; A6, edition of 120</p>
       </div>
     </div>
-  </header>
+  </section>
 
-  <main class="page-wrapper">
-
-    <!-- HERO: Stacked Broadside Poster -->
-    <section class="broadside-hero" id="poster">
-      <div class="poster-sheet">
-        <!-- Poster Registration Header -->
-        <div class="poster-head-rule">
-          <span class="reg-cross-mini"></span>
-          <span class="poster-top-meta">SPECIMEN SHEET • VOLUME IX • RELIEF PRINTING GUILD</span>
-          <span class="reg-cross-mini"></span>
-        </div>
-
-        <!-- Oxford Double Border Framing -->
-        <div class="poster-border-frame">
-          <div class="poster-content">
-            
-            <p class="poster-pretitle">THE BROADSIDE PRESS &amp; APPRENTICESHIP</p>
-            
-            <div class="woodtype-stack">
-              <h1 class="woodtype-line line-1">HAND-PULLED</h1>
-              <div class="poster-divider-rule thick"></div>
-              <h2 class="woodtype-line line-2">WOOD &amp; METAL TYPE</h2>
-              <div class="poster-divider-rule hairpin"></div>
-              
-              <div class="poster-subgrid">
-                <div class="subgrid-col left">
-                  <span class="ornament-glyph">&#10086;</span>
-                  <p class="subgrid-text">ALL RELIEF FORMS HAND-SET FROM THE CASE IN 100% MOVABLE ALLOY &amp; END-GRAIN MAPLE WOODTYPE.</p>
-                </div>
-                <div class="subgrid-col center-emphasis">
-                  <h3 class="woodtype-line line-3">COMMUNITY</h3>
-                  <h3 class="woodtype-line line-4">PRINT SHOP</h3>
-                </div>
-                <div class="subgrid-col right">
-                  <span class="ornament-glyph">&#10087;</span>
-                  <p class="subgrid-text">PUBLIC ACCESS PRESSES, WORKSHOPS, PROOFING CYLINDERS, AND TRADITIONAL APPRENTICE GUILD.</p>
-                </div>
-              </div>
-
-              <div class="poster-divider-rule heavy-strip">
-                <span class="strip-label">PROOF PRESSES &bull; PLATEN CYLINDERS &bull; DRYING RACKS &bull; LEAD GUILD</span>
-              </div>
-            </div>
-
-            <!-- Broadside Footer Tagline & Jump Actions -->
-            <div class="poster-actions-row">
-              <div class="action-note">
-                <p>Pulling proofs daily on 300g rag paper with linseed inks. No digital plates, no shortcut makeready.</p>
-              </div>
-              <div class="hero-cta-buttons">
-                <a href="#press-station" class="press-btn primary-press-btn">
-                  <span class="btn-icon">&#9658;</span> PULL A PROOF
-                </a>
-                <a href="#workshops" class="press-btn secondary-press-btn">
-                  ORDER SHEET &amp; CLASSES
-                </a>
-                <a href="#swatches" class="press-btn outline-press-btn">
-                  INK SPECIMENS
-                </a>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <div class="poster-foot-meta">
-          <span>SHEET SIZE: 18 &times; 24 INCHES</span>
-          <span>STOCK: CRANE'S LETTRA 300GSM CRU</span>
-          <span>PRESS: VANDERCOOK &amp; C&amp;P 10&times;15</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION: PULL A PROOF (INTERACTIVE LETTERPRESS CYLINDER) -->
-    <section class="press-station-section" id="press-station">
-      <div class="section-badge-header">
-        <span class="section-num">00</span>
-        <span class="section-title">THE PROOFING BED &bull; LIVE HAND-PULL SIMULATOR</span>
-        <span class="section-rule-flex"></span>
-        <span class="section-callout">TEST YOUR BITE &bull; TACTILE HAND PRESS</span>
-      </div>
-
-      <div class="press-machine-enclosure">
-        <!-- Control Console -->
-        <div class="press-controls-bar">
-          <div class="control-group">
-            <label class="control-label">1. CHOOSE INK FORMULA:</label>
-            <div class="ink-swatch-picker" id="ink-picker">
-              <button type="button" class="swatch-pick-btn active" data-color="#1B1810" data-name="Carbon Lampblack" title="Carbon Lampblack (#1B1810)">
-                <span class="color-circle" style="background:#1B1810;"></span>
-                <span class="color-text">Carbon Black</span>
-              </button>
-              <button type="button" class="swatch-pick-btn" data-color="#B7472A" data-name="Hot Press Vermilion" title="Hot Press Vermilion (#B7472A)">
-                <span class="color-circle" style="background:#B7472A;"></span>
-                <span class="color-text">Hot Press Red</span>
-              </button>
-              <button type="button" class="swatch-pick-btn" data-color="#5C6B4A" data-name="Olive Drab" title="Olive Drab (#5C6B4A)">
-                <span class="color-circle" style="background:#5C6B4A;"></span>
-                <span class="color-text">Olive Ink</span>
-              </button>
-              <button type="button" class="swatch-pick-btn" data-color="#C9971C" data-name="Mustard Ochre" title="Mustard Ochre (#C9971C)">
-                <span class="color-circle" style="background:#C9971C;"></span>
-                <span class="color-text">Mustard</span>
-              </button>
-            </div>
-          </div>
-
-          <div class="control-group">
-            <label for="paper-select" class="control-label">2. PAPER STOCK:</label>
-            <select id="paper-select" class="press-select">
-              <option value="lettra" data-bite="Heavy (0.34mm)">Crane's Lettra 300g (100% Cotton Rag)</option>
-              <option value="speckle" data-bite="Medium (0.24mm)">French Paper Co. Speckletone 100lb</option>
-              <option value="somerset" data-bite="Crisp Relief (0.18mm)">Somerset Velvet Heavyweight 250g</option>
-              <option value="newsprint" data-bite="Shallow Kiss (0.10mm)">Proofing Straw Newsprint 60lb</option>
-            </select>
-          </div>
-
-          <div class="control-group sound-toggle-group">
-            <label class="control-label">PRESS AUDIO:</label>
-            <button type="button" id="sound-toggle" class="press-toggle-btn active" aria-pressed="true">
-              <span class="sound-state">&#128266; SOUND ON</span>
-            </button>
-          </div>
-
-          <div class="control-group cta-group">
-            <button type="button" id="pull-proof-btn" class="pull-action-trigger">
-              <span class="crank-icon">&#10227;</span>
-              <span class="trigger-label">PULL A PROOF</span>
-              <span class="trigger-sub">CRANK THE VANDERCOOK CYLINDER</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- Press Bed & Hand Cylinder View -->
-        <div class="press-simulator-stage">
-          <div class="press-bed-rim">
-            <!-- Movable Cylinder / Brayer Carriage -->
-            <div class="cylinder-carriage" id="cylinder-carriage">
-              <div class="roller-axle"></div>
-              <div class="rubber-brayer">
-                <span class="cylinder-label">VANDERCOOK CYLINDER &bull; ROLLER TACK</span>
-              </div>
-            </div>
-
-            <!-- The Forme / Type Bed -->
-            <div class="forme-bed" id="forme-bed">
-              <div class="paper-sheet" id="proof-paper">
-                <!-- Registration guides on proof paper -->
-                <div class="paper-reg-pin pin-left"></div>
-                <div class="paper-reg-pin pin-right"></div>
-                
-                <div class="printed-impression" id="printed-impression">
-                  <div class="proof-edition-header">
-                    <span id="proof-id-stamp">PROOF #001 &bull; FIRST IMPRESSION</span>
-                    <span id="proof-date-stamp">HAND-PULLED IN THE GUILD SHOP</span>
-                  </div>
-
-                  <div class="proof-woodtype-art">
-                    <div class="proof-word-1">HOLD FAST</div>
-                    <div class="proof-ornament-line">
-                      <span class="p-ornament">&#10086;</span>
-                      <span class="p-rule"></span>
-                      <span class="p-center-spec">14-LINE HAMILTON GOTHIC</span>
-                      <span class="p-rule"></span>
-                      <span class="p-ornament">&#10087;</span>
-                    </div>
-                    <div class="proof-word-2">TO COLD TYPE</div>
-                    <div class="proof-subtext">
-                      "Ink is the blood of thought; paper is its enduring skin."
-                    </div>
-                  </div>
-
-                  <div class="proof-sheet-footer">
-                    <span class="proof-ink-indicator">INK: <strong id="proof-ink-name">Carbon Lampblack</strong></span>
-                    <span class="proof-paper-indicator">STOCK: <strong id="proof-stock-name">Crane's Lettra 300g</strong></span>
-                    <span class="proof-bite-indicator">BITE: <strong id="proof-bite-depth">Heavy (0.34mm)</strong></span>
-                  </div>
-                </div>
-
-                <!-- Ink Jitter and Impression Depth Overlay -->
-                <div class="impression-texture-overlay" id="impression-overlay"></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Proof Inspection & Notes Log -->
-          <div class="proof-inspector-drawer">
-            <div class="drawer-header">
-              <div class="drawer-title">
-                <span class="gauge-icon">&#9881;</span>
-                <span>PROOF TICKET &bull; PRESS LOGBOOK</span>
-              </div>
-              <span class="log-count-badge" id="proof-counter">1 PROOF PULLED</span>
-            </div>
-
-            <div class="live-proof-card" id="latest-proof-card">
-              <div class="proof-ticket-num" id="card-ticket-num">P-001 / PRESS-3</div>
-              <h4 class="card-status-head" id="card-status-title">PROOF PULLED CLEANLY</h4>
-              <p class="card-note-text" id="card-note-body">
-                Initial makeready pull on raw rag. Ink kiss is uniform across ascenders; slight wood-block relief tooth visible on the crossbar of "A". Packing depth verified at 0.34mm bite.
-              </p>
-              <div class="proof-specs-table">
-                <div class="spec-cell">
-                  <span class="spec-label">REGISTRATION:</span>
-                  <span class="spec-val" id="spec-reg">&#177; 0.2 pt</span>
-                </div>
-                <div class="spec-cell">
-                  <span class="spec-label">ROLLER TACK:</span>
-                  <span class="spec-val" id="spec-tack">Normal (14.2)</span>
-                </div>
-                <div class="spec-cell">
-                  <span class="spec-label">INK KISS:</span>
-                  <span class="spec-val" id="spec-bite">Deep Deboss</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Historical pulls log -->
-            <div class="history-log-scroll">
-              <div class="history-title-row">
-                <span>RECENT PULLS IN THIS SESSION:</span>
-                <button type="button" id="clear-log-btn" class="text-link-btn">CLEAR LOG</button>
-              </div>
-              <ul class="proof-log-list" id="proof-log-list">
-                <!-- Injected via JS -->
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION: HOW A JOB GETS MADE (3-STEP EARNED SEQUENCE) -->
-    <section class="process-sequence-section" id="process">
-      <div class="section-badge-header">
-        <span class="section-num">01</span>
-        <span class="section-title">HOW A JOB GETS MADE &bull; THE THREE DISCIPLINARY STAGES</span>
-        <span class="section-rule-flex"></span>
-        <span class="section-callout">NO SHORTCUTS &bull; FROM CASE TO DRYING RACK</span>
-      </div>
-
-      <div class="process-steps-grid">
-        
-        <!-- STEP 1: COMPOSE -->
-        <article class="step-card">
-          <div class="step-number-tag">
-            <span class="step-label">STAGE</span>
-            <span class="step-digit">01</span>
-          </div>
-          <div class="step-header">
-            <h3 class="step-headline">COMPOSE</h3>
-            <span class="step-subhead">From California Job Case to Locked Chase</span>
-          </div>
-          <div class="step-visual">
-            <div class="typesetting-stick-graphic">
-              <div class="stick-outer">
-                <div class="stick-clamp">PICA GAUGE 28</div>
-                <div class="stick-bed">
-                  <div class="metal-slugs-row">
-                    <span class="type-slug copper">B</span>
-                    <span class="type-slug">R</span>
-                    <span class="type-slug">O</span>
-                    <span class="type-slug">A</span>
-                    <span class="type-slug">D</span>
-                    <span class="type-slug">S</span>
-                    <span class="type-slug">I</span>
-                    <span class="type-slug">D</span>
-                    <span class="type-slug copper">E</span>
-                    <span class="type-spacer quad"></span>
-                    <span class="type-slug">&#10086;</span>
-                  </div>
-                </div>
-              </div>
-              <span class="graphic-caption">HAND-SETTING LETTER BY LETTER UPSIDE DOWN &amp; LEFT-TO-RIGHT</span>
-            </div>
-          </div>
-          <div class="step-body">
-            <p>Every broadside begins at the type cabinet. Letters are picked by hand from the California job case into a composing stick, spaced out with brass and copper thins, and justified until tight.</p>
-            <p>The form is transferred to the stone imposition slab, surrounded by wood furniture and quoins, then locked tightly in a cast-iron chase with a quoin key. It must be "stone-lift"—if a single letter drops when lifted, the lockup is rejected.</p>
-          </div>
-          <footer class="step-footer">
-            <span class="tool-tag">Composing Stick</span>
-            <span class="tool-tag">California Case</span>
-            <span class="tool-tag">Line Gauge</span>
-            <span class="tool-tag">Quoins &amp; Key</span>
-          </footer>
-        </article>
-
-        <!-- STEP 2: INK -->
-        <article class="step-card">
-          <div class="step-number-tag">
-            <span class="step-label">STAGE</span>
-            <span class="step-digit">02</span>
-          </div>
-          <div class="step-header">
-            <h3 class="step-headline">INK</h3>
-            <span class="step-subhead">Marble Slab, Brayer Drawdown &amp; Tack</span>
-          </div>
-          <div class="step-visual">
-            <div class="ink-slab-graphic">
-              <div class="marble-slab">
-                <div class="ink-ribbon vermilion"></div>
-                <div class="brayer-handle-art">
-                  <div class="roller-cylinder"></div>
-                  <div class="fork-grip"></div>
-                </div>
-              </div>
-              <span class="graphic-caption">LISTEN FOR THE HISS: UNIFORM TACK WITH ZERO ORANGE PEEL</span>
-            </div>
-          </div>
-          <div class="step-body">
-            <p>Letterpress ink is stiff, oil-based, and rich with pigment. A walnut-sized dollop is worked across the ground marble slab using an ink knife until butter-smooth, then rolled out with a handheld composition brayer.</p>
-            <p>Printers listen intently for the "hiss"—a velvet whisper that indicates the ink film is perfectly distributed across the rollers. Too wet, and letter shoulders slur; too dry, and wood grain goes hungry.</p>
-          </div>
-          <footer class="step-footer">
-            <span class="tool-tag">Marble Slab</span>
-            <span class="tool-tag">Linseed Base</span>
-            <span class="tool-tag">Composition Brayer</span>
-            <span class="tool-tag">Palette Knife</span>
-          </footer>
-        </article>
-
-        <!-- STEP 3: PULL -->
-        <article class="step-card">
-          <div class="step-number-tag">
-            <span class="step-label">STAGE</span>
-            <span class="step-digit">03</span>
-          </div>
-          <div class="step-header">
-            <h3 class="step-headline">PULL</h3>
-            <span class="step-subhead">Tympan Packing, Cylinder Sweep &amp; Bite</span>
-          </div>
-          <div class="step-visual">
-            <div class="pull-cylinder-graphic">
-              <div class="cylinder-rig">
-                <div class="tympan-paper-layer">
-                  <div class="crane-sheet-art">300g DEBOSS</div>
-                </div>
-                <div class="pressure-arrow">&#8595; IMPRESSION BITE</div>
-              </div>
-              <span class="graphic-caption">SMOOTH 180&deg; CRANK SWEEP UNDER FIVE HUNDRED POUNDS OF PACKING</span>
-            </div>
-          </div>
-          <div class="step-body">
-            <p>The sheet of damp or dry cotton rag is registered against brass gauge pins upon the tympan packing. The printer turns the heavy trip lever and rolls the cylinder smoothly across the inked bed.</p>
-            <p>Steel kisses wood and lead; hundreds of pounds of cylinder pressure press the pigment deep into the cotton fibers, leaving that unmistakable dimensional letterpress bite. The fresh sheet is peeled, inspected for registration, and hung upon line racks to cure.</p>
-          </div>
-          <footer class="step-footer">
-            <span class="tool-tag">Vandercook SP-15</span>
-            <span class="tool-tag">Gauge Pins</span>
-            <span class="tool-tag">Tympan Packing</span>
-            <span class="tool-tag">Drying Racks</span>
-          </footer>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- SECTION: WORKSHOP SCHEDULE (PRINTED ORDER SHEET / JOB TICKET TABLE) -->
-    <section class="order-sheet-section" id="workshops">
-      <div class="section-badge-header">
-        <span class="section-num">02</span>
-        <span class="section-title">WORKSHOP SCHEDULE &bull; GUILD PRINT ORDER SHEET</span>
-        <span class="section-rule-flex"></span>
-        <span class="section-callout">JOB TICKET LOG &bull; AUTUMN / WINTER 2026</span>
-      </div>
-
-      <!-- Printed Order Sheet Container with Perforations -->
-      <div class="order-sheet-paper">
-        <div class="perforation-rip-edge" title="Tear along perforation"></div>
-
-        <div class="sheet-masthead">
-          <div class="masthead-left">
-            <h2 class="sheet-shop-name">BROADSIDE GUILD WORKSHOP REGISTRY</h2>
-            <p class="sheet-subline">All sessions include cotton rag paper stocks, oil-based inks, and dedicated press time under master printers.</p>
-          </div>
-          <div class="masthead-right">
-            <div class="sheet-job-number">FORM #WS-409B</div>
-            <div class="sheet-date-stamp">ISSUED: 22 SEP 2026</div>
-          </div>
-        </div>
-
-        <!-- Filter bar styled as shop filing tabs -->
-        <div class="sheet-filter-bar">
-          <span class="filter-caption">FILTER BY DISCIPLINE:</span>
-          <div class="filter-tabs" id="schedule-filters">
-            <button type="button" class="order-tab-btn active" data-filter="all">ALL SESSIONS (6)</button>
-            <button type="button" class="order-tab-btn" data-filter="intro">FOUNDATIONS (2)</button>
-            <button type="button" class="order-tab-btn" data-filter="intermediate">WOOD TYPE &amp; POSTERS (2)</button>
-            <button type="button" class="order-tab-btn" data-filter="advanced">PLATEN PRESS / OPEN (2)</button>
-          </div>
-        </div>
-
-        <!-- Order Sheet Table -->
-        <div class="table-scroll-container">
-          <table class="order-table" id="schedule-table">
-            <thead>
-              <tr>
-                <th class="col-ticket">TICKET NO.</th>
-                <th class="col-title">WORKSHOP TITLE &amp; DESCRIPTION</th>
-                <th class="col-instructor">INSTRUCTOR</th>
-                <th class="col-press">ASSIGNED PRESS</th>
-                <th class="col-date">DATES / HOURS</th>
-                <th class="col-fee">MATERIALS &amp; FEE</th>
-                <th class="col-status">AVAILABILITY</th>
-                <th class="col-action">ORDER</th>
-              </tr>
-            </thead>
-            <tbody>
-
-              <!-- Job 1 -->
-              <tr class="ticket-row" data-category="intro">
-                <td class="cell-ticket">
-                  <span class="ticket-code">TKT-101</span>
-                  <span class="level-indicator">LEVEL: NOVICE</span>
-                </td>
-                <td class="cell-title">
-                  <strong class="workshop-name">Introduction to Letterpress: Type &amp; Brayer</strong>
-                  <p class="workshop-desc">Learn the California job case, composing stick spacing, stone lockup, and pull your first edition of 20 personalized note cards.</p>
-                </td>
-                <td class="cell-instructor">
-                  <span class="instructor-name">A. Vance</span>
-                  <span class="inst-role">Compositor</span>
-                </td>
-                <td class="cell-press">
-                  <span class="press-pill">Vandercook Universal I</span>
-                </td>
-                <td class="cell-date">
-                  <span class="date-bold">SAT 03 OCT</span>
-                  <span class="hours-dim">10:00 – 16:00 (6 hrs)</span>
-                </td>
-                <td class="cell-fee">
-                  <span class="price-val">$145</span>
-                  <span class="fee-note">Stock &amp; Ink Incl.</span>
-                </td>
-                <td class="cell-status">
-                  <span class="status-stamp stamp-open">3 SEATS LEFT</span>
-                </td>
-                <td class="cell-action">
-                  <button type="button" class="voucher-book-btn" data-ticket="TKT-101" data-name="Intro to Letterpress: Type &amp; Brayer" data-fee="$145" data-date="Sat 03 Oct">RESERVE</button>
-                </td>
-              </tr>
-
-              <!-- Job 2 -->
-              <tr class="ticket-row" data-category="intermediate">
-                <td class="cell-ticket">
-                  <span class="ticket-code">TKT-102</span>
-                  <span class="level-indicator">LEVEL: INTERMEDIATE</span>
-                </td>
-                <td class="cell-title">
-                  <strong class="workshop-name">The Big Broadside: 18&times;24 Wood Type Posters</strong>
-                  <p class="workshop-desc">Master large-format lockups using 10-line to 30-line Hamilton wood type. Explore two-color split fountains, overprinting, and registration tricks.</p>
-                </td>
-                <td class="cell-instructor">
-                  <span class="instructor-name">M. Chen</span>
-                  <span class="inst-role">Poster Maker</span>
-                </td>
-                <td class="cell-press">
-                  <span class="press-pill">Vandercook SP-15</span>
-                </td>
-                <td class="cell-date">
-                  <span class="date-bold">SAT–SUN 10–11 OCT</span>
-                  <span class="hours-dim">2 Days (10:00 – 17:00)</span>
-                </td>
-                <td class="cell-fee">
-                  <span class="price-val">$280</span>
-                  <span class="fee-note">Large Rag Incl.</span>
-                </td>
-                <td class="cell-status">
-                  <span class="status-stamp stamp-filling">2 SEATS LEFT</span>
-                </td>
-                <td class="cell-action">
-                  <button type="button" class="voucher-book-btn" data-ticket="TKT-102" data-name="The Big Broadside: Wood Type Posters" data-fee="$280" data-date="Sat–Sun 10–11 Oct">RESERVE</button>
-                </td>
-              </tr>
-
-              <!-- Job 3 -->
-              <tr class="ticket-row" data-category="advanced">
-                <td class="cell-ticket">
-                  <span class="ticket-code">TKT-103</span>
-                  <span class="level-indicator">LEVEL: ADVANCED</span>
-                </td>
-                <td class="cell-title">
-                  <strong class="workshop-name">Platen Press Mechanics &amp; Die-Cutting</strong>
-                  <p class="workshop-desc">Deep dive into the motorized Chandler &amp; Price 10&times;15 clamshell. Makeready packing, ink disc adjustment, platen leveling, and scoring rules.</p>
-                </td>
-                <td class="cell-instructor">
-                  <span class="instructor-name">R. O'Keeffe</span>
-                  <span class="inst-role">Press Machinist</span>
-                </td>
-                <td class="cell-press">
-                  <span class="press-pill">C&amp;P 10&times;15 Platen</span>
-                </td>
-                <td class="cell-date">
-                  <span class="date-bold">THU 15 OCT</span>
-                  <span class="hours-dim">18:00 – 21:30 (3.5 hrs)</span>
-                </td>
-                <td class="cell-fee">
-                  <span class="price-val">$120</span>
-                  <span class="fee-note">Tooling Incl.</span>
-                </td>
-                <td class="cell-status">
-                  <span class="status-stamp stamp-full">SOLD OUT</span>
-                </td>
-                <td class="cell-action">
-                  <button type="button" class="voucher-book-btn disabled" disabled>WAITLIST</button>
-                </td>
-              </tr>
-
-              <!-- Job 4 -->
-              <tr class="ticket-row" data-category="intro">
-                <td class="cell-ticket">
-                  <span class="ticket-code">TKT-104</span>
-                  <span class="level-indicator">LEVEL: ALL LEVELS</span>
-                </td>
-                <td class="cell-title">
-                  <strong class="workshop-name">Linocut Relief Carving &amp; Letterpress Overprint</strong>
-                  <p class="workshop-desc">Carve your own battleship linoleum relief block and lock it into the chase beside metal Caslon lead type for an illustrated narrative print.</p>
-                </td>
-                <td class="cell-instructor">
-                  <span class="instructor-name">H. Kael</span>
-                  <span class="inst-role">Printmaker</span>
-                </td>
-                <td class="cell-press">
-                  <span class="press-pill">Challenge 15&times;20 Bed</span>
-                </td>
-                <td class="cell-date">
-                  <span class="date-bold">SUN 18 OCT</span>
-                  <span class="hours-dim">11:00 – 17:00 (6 hrs)</span>
-                </td>
-                <td class="cell-fee">
-                  <span class="price-val">$155</span>
-                  <span class="fee-note">Lino &amp; Paper Incl.</span>
-                </td>
-                <td class="cell-status">
-                  <span class="status-stamp stamp-open">5 SEATS LEFT</span>
-                </td>
-                <td class="cell-action">
-                  <button type="button" class="voucher-book-btn" data-ticket="TKT-104" data-name="Linocut Relief &amp; Letterpress Overprint" data-fee="$155" data-date="Sun 18 Oct">RESERVE</button>
-                </td>
-              </tr>
-
-              <!-- Job 5 -->
-              <tr class="ticket-row" data-category="intermediate">
-                <td class="cell-ticket">
-                  <span class="ticket-code">TKT-105</span>
-                  <span class="level-indicator">LEVEL: INTERMEDIATE</span>
-                </td>
-                <td class="cell-title">
-                  <strong class="workshop-name">Experimental Inking: Split Fountains &amp; Ghosting</strong>
-                  <p class="workshop-desc">Work with graduated rainbow roll drawdowns, ghost impressions, double strikes, and solvent washes directly upon hardwood type surfaces.</p>
-                </td>
-                <td class="cell-instructor">
-                  <span class="instructor-name">A. Vance</span>
-                  <span class="inst-role">Compositor</span>
-                </td>
-                <td class="cell-press">
-                  <span class="press-pill">Vandercook SP-15</span>
-                </td>
-                <td class="cell-date">
-                  <span class="date-bold">SAT 24 OCT</span>
-                  <span class="hours-dim">13:00 – 18:00 (5 hrs)</span>
-                </td>
-                <td class="cell-fee">
-                  <span class="price-val">$175</span>
-                  <span class="fee-note">Color Inks Incl.</span>
-                </td>
-                <td class="cell-status">
-                  <span class="status-stamp stamp-open">4 SEATS LEFT</span>
-                </td>
-                <td class="cell-action">
-                  <button type="button" class="voucher-book-btn" data-ticket="TKT-105" data-name="Experimental Inking &amp; Split Fountains" data-fee="$175" data-date="Sat 24 Oct">RESERVE</button>
-                </td>
-              </tr>
-
-              <!-- Job 6 -->
-              <tr class="ticket-row" data-category="advanced">
-                <td class="cell-ticket">
-                  <span class="ticket-code">TKT-106</span>
-                  <span class="level-indicator">LEVEL: CERTIFIED ONLY</span>
-                </td>
-                <td class="cell-title">
-                  <strong class="workshop-name">Open Press Access Pass &bull; Independent Studio Hours</strong>
-                  <p class="workshop-desc">For shop-certified printers. Reserve a 4-hour dedicated cylinder or platen slot with shop technician oversight, solvent access, and drying rack space.</p>
-                </td>
-                <td class="cell-instructor">
-                  <span class="instructor-name">Shop Monitor</span>
-                  <span class="inst-role">On Duty</span>
-                </td>
-                <td class="cell-press">
-                  <span class="press-pill">Any Available Press</span>
-                </td>
-                <td class="cell-date">
-                  <span class="date-bold">WEEKLY WED/FRI/SUN</span>
-                  <span class="hours-dim">Choose 4-hr block</span>
-                </td>
-                <td class="cell-fee">
-                  <span class="price-val">$45 / 4hr</span>
-                  <span class="fee-note">BYO Stock &amp; Custom Ink</span>
-                </td>
-                <td class="cell-status">
-                  <span class="status-stamp stamp-open">PASS AVAILABLE</span>
-                </td>
-                <td class="cell-action">
-                  <button type="button" class="voucher-book-btn" data-ticket="TKT-106" data-name="Open Press Access 4-Hour Pass" data-fee="$45" data-date="Open Studio Booking">RESERVE</button>
-                </td>
-              </tr>
-
-            </tbody>
-          </table>
-        </div>
-
-        <div class="sheet-footer-rules">
-          <div class="rules-block">
-            <span class="rules-label">SHOP RULES:</span>
-            <span>Closed-toe leather shoes required on the press floor. Hair tied back. All shop solvents are low-VOC odorless mineral spirits. Please leave the stone cleaner than you found it.</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION: PRINT-JOB GALLERY (COLOR & INK SWATCHES) -->
-    <section class="swatches-gallery-section" id="swatches">
-      <div class="section-badge-header">
-        <span class="section-num">03</span>
-        <span class="section-title">PRINT SPECIMEN GALLERY &bull; INK &amp; STOCK SWATCHES</span>
-        <span class="section-rule-flex"></span>
-        <span class="section-callout">TACTILE COLOR STUDIES &bull; NO DIGITAL RETOUCHING</span>
-      </div>
-
-      <p class="section-lead-paragraph">
-        Rather than flat digital mockups or stock photos, our catalog is presented through real letterpress specimens: ink formulas mixed in-house, tested for tack on our marble slab, and stamped into distinct paper rag weights.
-      </p>
-
-      <div class="swatches-grid">
-
-        <!-- Swatch 1: Hot Press Vermilion -->
-        <article class="swatch-card" data-swatch="vermilion">
-          <div class="swatch-plate" style="background-color: #B7472A;">
-            <div class="plate-inner-glyph">
-              <span class="large-letterpress-char" style="color: #F7F3E9;">B</span>
-            </div>
-            <div class="plate-ink-formula-tag">NO. 42 HOT PRESS</div>
-          </div>
-          <div class="swatch-details">
-            <div class="swatch-code-row">
-              <span class="swatch-ref">FORMULA: #B7472A</span>
-              <span class="swatch-stock-tag">CRANE LETTRA 600G</span>
-            </div>
-            <h4 class="swatch-title">Hot Press Vermilion</h4>
-            <p class="swatch-desc">High-opacity scarlet ground from warm mineral pigments. Sits crisply on double-thick cotton rag with heavy impression bite (0.42mm).</p>
-            <div class="swatch-meta-matrix">
-              <div class="meta-row">
-                <span class="m-label">Pigment:</span>
-                <span class="m-val">Cadmium Red + Raw Sienna</span>
-              </div>
-              <div class="meta-row">
-                <span class="m-label">Impression:</span>
-                <span class="m-val">Deep Deboss Bite</span>
-              </div>
-              <div class="meta-row">
-                <span class="m-label">Tack Rating:</span>
-                <span class="m-val">15.8 (Velvet Drawdown)</span>
-              </div>
-            </div>
-            <button type="button" class="swatch-inspect-btn" data-swatch="vermilion">INSPECT SPECIMEN CARD</button>
-          </div>
-        </article>
-
-        <!-- Swatch 2: Carbon Bone Black -->
-        <article class="swatch-card" data-swatch="black">
-          <div class="swatch-plate" style="background-color: #1B1810;">
-            <div class="plate-inner-glyph">
-              <span class="large-letterpress-char" style="color: #F7F3E9;">&amp;</span>
-            </div>
-            <div class="plate-ink-formula-tag">NO. 01 LAMPBLACK</div>
-          </div>
-          <div class="swatch-details">
-            <div class="swatch-code-row">
-              <span class="swatch-ref">FORMULA: #1B1810</span>
-              <span class="swatch-stock-tag">FRENCH SPECKLETONE</span>
-            </div>
-            <h4 class="swatch-title">Carbon Lampblack</h4>
-            <p class="swatch-desc">Dense, matte soot-carbon suspended in triple-boiled linseed. Leaves deep relief tooth in unbleached paper fibers without gloss reflection.</p>
-            <div class="swatch-meta-matrix">
-              <div class="meta-row">
-                <span class="m-label">Pigment:</span>
-                <span class="m-val">Channel Bone Carbon</span>
-              </div>
-              <div class="meta-row">
-                <span class="m-label">Impression:</span>
-                <span class="m-val">Crisp Relief (0.22mm)</span>
-              </div>
-              <div class="meta-row">
-                <span class="m-label">Tack Rating:</span>
-                <span class="m-val">18.4 (Stiff Body)</span>
-              </div>
-            </div>
-            <button type="button" class="swatch-inspect-btn" data-swatch="black">INSPECT SPECIMEN CARD</button>
-          </div>
-        </article>
-
-        <!-- Swatch 3: Olive Drab Two-Tone -->
-        <article class="swatch-card" data-swatch="olive">
-          <div class="swatch-plate" style="background-color: #5C6B4A;">
-            <div class="plate-inner-glyph overprint-demo">
-              <span class="large-letterpress-char" style="color: #1B1810; opacity: 0.85;">✦</span>
-            </div>
-            <div class="plate-ink-formula-tag">NO. 19 OLIVE DRAB</div>
-          </div>
-          <div class="swatch-details">
-            <div class="swatch-code-row">
-              <span class="swatch-ref">FORMULA: #5C6B4A</span>
-              <span class="swatch-stock-tag">SOMERSET VELVET</span>
-            </div>
-            <h4 class="swatch-title">Olive Drab Overprint</h4>
-            <p class="swatch-desc">Formulated with 30% transparent extender base for translucent overprinting. Where it crosses black lead type, it produces a deep bronze shadow tone.</p>
-            <div class="swatch-meta-matrix">
-              <div class="meta-row">
-                <span class="m-label">Pigment:</span>
-                <span class="m-val">Terre Verte + Yellow Ochre</span>
-              </div>
-              <div class="meta-row">
-                <span class="m-label">Impression:</span>
-                <span class="m-val">Translucent Kiss (0.16mm)</span>
-              </div>
-              <div class="meta-row">
-                <span class="m-label">Tack Rating:</span>
-                <span class="m-val">12.0 (Fast Glide)</span>
-              </div>
-            </div>
-            <button type="button" class="swatch-inspect-btn" data-swatch="olive">INSPECT SPECIMEN CARD</button>
-          </div>
-        </article>
-
-        <!-- Swatch 4: Mustard Ochre -->
-        <article class="swatch-card" data-swatch="mustard">
-          <div class="swatch-plate" style="background-color: #C9971C;">
-            <div class="plate-inner-glyph">
-              <span class="large-letterpress-char" style="color: #1B1810;">№</span>
-            </div>
-            <div class="plate-ink-formula-tag">NO. 88 MUSTARD OCHRE</div>
-          </div>
-          <div class="swatch-details">
-            <div class="swatch-code-row">
-              <span class="swatch-ref">FORMULA: #C9971C</span>
-              <span class="swatch-stock-tag">STRATHMORE 250G</span>
-            </div>
-            <h4 class="swatch-title">Mustard Ochre Specimen</h4>
-            <p class="swatch-desc">Warm iron-oxide earth tone used for job ticket stamps, broadside starbursts, and numbered edition stencils. Warm contrast against cold black ink.</p>
-            <div class="swatch-meta-matrix">
-              <div class="meta-row">
-                <span class="m-label">Pigment:</span>
-                <span class="m-val">Natural French Ochre</span>
-              </div>
-              <div class="meta-row">
-                <span class="m-label">Impression:</span>
-                <span class="m-val">Medium Relief (0.20mm)</span>
-              </div>
-              <div class="meta-row">
-                <span class="m-label">Tack Rating:</span>
-                <span class="m-val">14.1 (Clean Release)</span>
-              </div>
-            </div>
-            <button type="button" class="swatch-inspect-btn" data-swatch="mustard">INSPECT SPECIMEN CARD</button>
-          </div>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- SECTION: THE PRESSES & TYPE COLLECTION -->
-    <section class="foundry-section" id="equipment">
-      <div class="section-badge-header">
-        <span class="section-num">04</span>
-        <span class="section-title">THE GUILD FOUNDRY &amp; PRESS ROSTER</span>
-        <span class="section-rule-flex"></span>
-        <span class="section-callout">WORKING MACHINES &bull; HEAVY IRON</span>
-      </div>
-
-      <div class="equipment-grid">
-        <div class="equip-card">
-          <div class="equip-badge">PRESS NO. 1</div>
-          <h4 class="equip-name">Vandercook SP-15</h4>
-          <span class="equip-type">Precision Hand Cylinder Proof Press (1963)</span>
-          <p class="equip-desc">Our primary broadside poster press. Equipped with motor-driven inking rollers and an adjustable bed. Max sheet size: 14&frac34; &times; 20 inches.</p>
-          <div class="equip-stats">
-            <span>BED: 15 &times; 20"</span>
-            <span>SPEED: Hand Crank</span>
-            <span>USE: Broadsides, Fine Art</span>
-          </div>
-        </div>
-
-        <div class="equip-card">
-          <div class="equip-badge">PRESS NO. 2</div>
-          <h4 class="equip-name">Chandler &amp; Price 10&times;15</h4>
-          <span class="equip-type">Cast Iron Platen Job Press (1918)</span>
-          <p class="equip-desc">The workhorse of commercial stationery. Clamshell platen motion driven by a flywheel with counterweight. Max speed: 1,500 impressions/hr.</p>
-          <div class="equip-stats">
-            <span>CHASE: 10 &times; 15"</span>
-            <span>WEIGHT: 1,800 lbs</span>
-            <span>USE: Cards, Coasters, Blind Deboss</span>
-          </div>
-        </div>
-
-        <div class="equip-card">
-          <div class="equip-badge">PRESS NO. 3</div>
-          <h4 class="equip-name">Challenge Proof Press</h4>
-          <span class="equip-type">Rigid Galley Hand Bed (1942)</span>
-          <p class="equip-desc">Simple, unyielding iron cylinder on tracks. Used for pulling quick makeready galley proofs, linocut test strikes, and apprentice training.</p>
-          <div class="equip-stats">
-            <span>BED: 15 &times; 28"</span>
-            <span>OPERATION: Manual</span>
-            <span>USE: Student Proofs, Linocuts</span>
-          </div>
-        </div>
-
-        <div class="equip-card highlight-type">
-          <div class="equip-badge">CABINETS</div>
-          <h4 class="equip-name">The Wood Type Morgue</h4>
-          <span class="equip-type">Over 140 Drawers of End-Grain Rock Maple</span>
-          <p class="equip-desc">Featuring rare Hamilton 12-line to 36-line Tuscan Ornate, Clarendon Condensed, Caslon 540 lead foundry cases, and Cheltenham Bold.</p>
-          <div class="equip-stats">
-            <span>CASES: 140+</span>
-            <span>POINT RANGE: 8pt to 120pt</span>
-            <span>ALL METAL &amp; WOOD</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION: VISIT & COMMUNITY MANIFESTO -->
-    <section class="manifesto-section" id="visit">
-      <div class="manifesto-box">
-        <div class="manifesto-header">
-          <span class="manifesto-stamp">GUILD OATH</span>
-          <h3 class="manifesto-title">WHY WE KEEP THE IRON RUNNING</h3>
-        </div>
-        <div class="manifesto-body">
-          <p>
-            In an era where pixels vanish with the click of a tab, letterpress printing commits words to physical substance. Every line has physical height: 0.918 inches—the universal type-high standard established by Renaissance founders.
-          </p>
-          <p>
-            Broadside exists so that writers, artists, students, and neighbors can lay hands upon cold lead, feel the resistance of oil ink, and take home sheets that will outlast any digital format.
-          </p>
-        </div>
-        <div class="manifesto-colophon">
-          <span>&mdash; THE PRINTERS OF BROADSIDE PRESS</span>
-          <span class="colophon-date">FOUNDRY ALLEY, EST. 2024</span>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- FOOTER: Colophon, Registration Density Bar & Colophon -->
-  <footer class="shop-footer">
-    <div class="footer-inner">
-      
-      <!-- Color Density Registration Step Bar -->
-      <div class="press-color-density-bar">
-        <div class="density-label">COLOR DENSITY CONTROL &bull; PRESSROOM TEST STRIP:</div>
-        <div class="density-swatches">
-          <span class="c-swatch cmyk-c" title="Cyan 100%"></span>
-          <span class="c-swatch cmyk-m" title="Magenta 100%"></span>
-          <span class="c-swatch cmyk-y" title="Yellow 100%"></span>
-          <span class="c-swatch cmyk-k" title="Black Key 100%"></span>
-          <span class="c-swatch spot-red" title="Spot Vermilion #B7472A"></span>
-          <span class="c-swatch spot-olive" title="Spot Olive #5C6B4A"></span>
-          <span class="c-swatch spot-mustard" title="Spot Mustard #C9971C"></span>
-          <span class="c-swatch paper-raw" title="Raw Paper #F7F3E9"></span>
-        </div>
-      </div>
-
-      <div class="footer-grid">
-        <div class="footer-col">
-          <div class="footer-logo">BROADSIDE</div>
-          <p class="footer-about">
-            A nonprofit community letterpress print shop and typographical teaching lab. Hand-set cold type, Vandercook proof presses, and traditional relief printmaking.
-          </p>
-          <p class="footer-sub">All sheets pulled by hand. None identical.</p>
-        </div>
-
-        <div class="footer-col">
-          <h5 class="col-head">GUILD LOCATION</h5>
-          <address class="footer-address">
-            Broadside Press &amp; Guild<br>
-            424 Foundry Alley, Suite 2B<br>
-            Corner of 4th &amp; Market<br>
-            press@broadsideguild.org
-          </address>
-        </div>
-
-        <div class="footer-col">
-          <h5 class="col-head">SHOP VISITING HOURS</h5>
-          <ul class="hours-list">
-            <li><span>Wednesday &ndash; Friday:</span> <span>12:00 &ndash; 19:00</span></li>
-            <li><span>Saturday &ndash; Sunday:</span> <span>10:00 &ndash; 18:00</span></li>
-            <li><span>Monday &ndash; Tuesday:</span> <span>Closed for Makeready</span></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h5 class="col-head">PRESS SPECS</h5>
-          <div class="footer-specs">
-            <div><span>TYPE-HIGH:</span> <span>0.918 in (23.32 mm)</span></div>
-            <div><span>STANDARD PICA:</span> <span>12 points (4.217 mm)</span></div>
-            <div><span>PROOF PRESS:</span> <span>Vandercook SP-15</span></div>
-            <div><span>PAPER BASE:</span> <span>100% Cotton Rag</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="footer-bottom-row">
-        <div class="colophon-text">
-          &copy; 2026 Broadside Print Guild. Typeset in Anton, Source Serif 4, and Space Mono. Printed on #F7F3E9 Warm Paper stock.
-        </div>
-        <div class="footer-nav-links">
-          <a href="#poster">TOP OF BROADSIDE</a>
-          <span class="sep">&bull;</span>
-          <a href="#press-station">PULL A PROOF</a>
-          <span class="sep">&bull;</span>
-          <a href="#process">3-STEP PROCESS</a>
-          <span class="sep">&bull;</span>
-          <a href="#workshops">ORDER SHEET</a>
-          <span class="sep">&bull;</span>
-          <a href="#swatches">INK SWATCHES</a>
-        </div>
-      </div>
-
+  <section class="join">
+    <div class="join-inner">
+      <h2>Membership is $30 a month</h2>
+      <p>That covers open studio access, a locker for your own type if you collect it, and first pick of workshop seats before they're opened to the public. No printing experience required to join — most members learn it here.</p>
+      <a href="#" class="btn btn-primary">Start a membership</a>
     </div>
-  </footer>
+  </section>
 
-  <!-- MODAL: ORDER SHEET RESERVATION VOUCHER -->
-  <div class="modal-backdrop" id="booking-modal" aria-hidden="true" role="dialog" aria-labelledby="modal-title">
-    <div class="voucher-modal-card">
-      <button type="button" class="close-modal-btn" id="close-modal-btn" aria-label="Close modal">&times;</button>
-      
-      <div class="voucher-header">
-        <div class="voucher-tag">PRINT ORDER VOUCHER &bull; BROADSIDE GUILD</div>
-        <h3 id="modal-title" class="voucher-title">WORKSHOP RESERVATION</h3>
-        <span class="voucher-ticket-id" id="modal-ticket-id">TKT-101</span>
-      </div>
+</main>
 
-      <div class="voucher-body">
-        <div class="voucher-field-group">
-          <span class="v-label">SELECTED DISCIPLINE:</span>
-          <div class="v-value-bold" id="modal-workshop-name">Introduction to Letterpress: Type &amp; Brayer</div>
-        </div>
+<footer class="site-footer">
+  <p>Broadside Press &middot; a 501(c)(3) community print shop &middot; ink stains not included</p>
+</footer>
 
-        <div class="voucher-two-col">
-          <div class="voucher-field-group">
-            <span class="v-label">SESSION DATE:</span>
-            <div class="v-value" id="modal-workshop-date">Sat 03 Oct</div>
-          </div>
-          <div class="voucher-field-group">
-            <span class="v-label">MATERIALS &amp; FEE:</span>
-            <div class="v-value" id="modal-workshop-fee">$145 (All Included)</div>
-          </div>
-        </div>
-
-        <form id="voucher-form" class="voucher-form">
-          <div class="form-row">
-            <label for="ap-name" class="v-label">APPRENTICE / PRINTER NAME:</label>
-            <input type="text" id="ap-name" required placeholder="e.g. Eleanor Vance" class="v-input">
-          </div>
-          <div class="form-row">
-            <label for="ap-email" class="v-label">DISPATCH EMAIL FOR CONFIRMATION:</label>
-            <input type="email" id="ap-email" required placeholder="e.g. eleanor@foundry.org" class="v-input">
-          </div>
-          <div class="form-row">
-            <label for="ap-experience" class="v-label">LETTERPRESS EXPERIENCE LEVEL:</label>
-            <select id="ap-experience" class="v-input">
-              <option value="none">Total Beginner (Never held a composing stick)</option>
-              <option value="some">Have pulled proofs before / Book arts</option>
-              <option value="certified">Shop certified / Ready for independent press</option>
-            </select>
-          </div>
-
-          <div class="form-submit-row">
-            <button type="submit" class="press-btn primary-press-btn full-width">
-              CONFIRM RESERVATION &bull; ISSUE JOB TICKET
-            </button>
-          </div>
-        </form>
-        <!-- Paste inside <body> where you want the widget (e.g. above the footer) -->
-<section id="pressroom-conditions" style="max-width:640px;margin:2rem auto;padding:1rem;border:2px solid #1B1810;background:#F7F3E9;font-family:'Space Mono',monospace">
-  <h2>PRESSROOM CONDITIONS</h2>
-  <form id="pw-form">
-    <label for="pw-city">City:</label>
-    <input id="pw-city" value="London" required>
-    <button type="submit">CHECK AIR</button>
-  </form>
-  <div id="pw-result" aria-live="polite"></div>
-</section>
-<script src="js/pressroom-weather.js"></script>
-
-
-        <div class="reservation-success-msg" id="reservation-success" style="display:none;">
-          <div class="stamp-confirmed">CONFIRMED &bull; TICKET ISSUED</div>
-          <p>Your place at the type bank is reserved! Check your email dispatch for makeready notes and clothing guidance.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- MODAL: SWATCH SPECIMEN LOUPE -->
-  <div class="modal-backdrop" id="swatch-modal" aria-hidden="true" role="dialog" aria-labelledby="swatch-modal-title">
-    <div class="swatch-modal-card">
-      <button type="button" class="close-modal-btn" id="close-swatch-modal-btn" aria-label="Close modal">&times;</button>
-      <div class="swatch-modal-inner" id="swatch-modal-content">
-        <!-- Dynamically populated by JS -->
-      </div>
-    </div>
-  </div>
-
-  <script src="js/main.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

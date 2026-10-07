@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guild Member Login - Broadside</title>
+<style>
+ body{font-family:'Space Mono',monospace;background:#F7F3E9;color:#1B1810;max-width:480px;margin:2rem auto;padding:0 1rem}
+ input,button{width:100%;padding:.6rem;margin:.3rem 0;font:inherit;box-sizing:border-box}
+ button{background:#1B1810;color:#F7F3E9;border:0;cursor:pointer} #msg{margin-top:1rem}
+</style></head><body>
+<h1>GUILD MEMBER LOGIN</h1>
+<p>Passwords are sealed with the Lockup algorithm (salt + pepper + 210,000 rounds). Demo storage is this browser only.</p>
+<input id="user" placeholder="Printer name" autocomplete="username">
+<input id="pass" type="password" placeholder="Password" autocomplete="current-password">
+<div id="meter"></div>
+<button id="register">REGISTER</button>
+<button id="login">LOG IN</button>
+<div id="msg" aria-live="polite"></div>
+<script type="module">
+import { hashPassword, verifyPassword, passwordStrength } from "./js/lockup.mjs";
+const $ = (id) => document.getElementById(id);
+const say = (t) => ($("msg").textContent = t);
+const load = () => { try { return JSON.parse(localStorage.getItem("guild-users") || "{}"); } catch { return {}; } };
+const save = (u) => { try { localStorage.setItem("guild-users", JSON.stringify(u)); } catch {} };
+$("pass").addEventListener("input", () => ($("meter").textContent = "Strength: " + passwordStrength($("pass").value)));
+$("register").onclick = async () => {
+  const name = $("user").value.trim(), pw = $("pass").value;
+  if (!name || pw.length < 8) return say("Enter a name and a password of 8+ characters.");
+  const users = load();
+  if (users[name]) return say("That printer name is taken.");
+  users[name] = await hashPassword(pw); save(users); say("Registered. Stored hash: " + users[name].slice(0, 40) + "...");
+};
+$("login").onclick = async () => {
+  const name = $("user").value.trim(), users = load();
+  const ok = users[name] && await verifyPassword($("pass").value, users[name]);
+  say(ok ? "Welcome to the guild, " + name + "." : "Name or password incorrect.");
+};
+</script></body></html>
