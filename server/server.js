@@ -4,6 +4,7 @@
 // =========================================================
 
 const express = require("express");
+const cors = require("cors");
 const path = require("path");
 const dotenv = require("dotenv");
 const { GoogleGenAI } = require("@google/genai");
@@ -21,6 +22,11 @@ dotenv.config({
 });
 
 const app = express();
+app.use(cors({
+  origin: "https://heenalhelbha-hash.github.io",
+  methods: ["GET", "POST", "OPTIONS"],
+  allowedHeaders: ["Content-Type"]
+}));
 
 const PORT = process.env.PORT || 3000;
 
