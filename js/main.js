@@ -234,7 +234,7 @@ if (generateProductBtn) {
 
                 const response =
                     await fetch(
-                        "/api/generate-product",
+                        "https://broadside-5npx.onrender.com/api/generate-product",
                         {
                             method: "POST",
 
